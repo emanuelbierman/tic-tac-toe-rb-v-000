@@ -110,6 +110,7 @@ def won?(board)
       if element == "X"
         match << index
       end
+      binding.pry
       WIN_COMBINATIONS.each_with_index do |element, index|
         if (WIN_COMBINATIONS[index]) & match == WIN_COMBINATIONS[index]
           return WIN_COMBINATIONS[index]
