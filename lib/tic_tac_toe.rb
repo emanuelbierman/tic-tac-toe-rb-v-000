@@ -156,6 +156,7 @@ def won?(board)
   #     return false
   #   end
   # }
+  binding.pry
 end
 
 def full?(board)
