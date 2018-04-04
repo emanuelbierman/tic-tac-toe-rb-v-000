@@ -97,9 +97,9 @@ def won?(board)
   # we want to take each item in the board array and create an array
     # and compare each of those arrays to each of the arrays in the WIN_COMBINATIONS array
 
-    in board, find each element that matches X or O
-      and return an array with their indexes
-    return a comparison of the intersection of that array with every array within WIN_COMBINATIONS
+    # in board, find each element that matches X or O
+    #   and return an array with their indexes
+    # return a comparison of the intersection of that array with every array within WIN_COMBINATIONS
 
     # if they match, return WIN_COMBINATIONS[]
     # else, return false
