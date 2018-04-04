@@ -87,35 +87,41 @@ def won?(board)
   #   return false
   # end
 
-  # win_combo_1 =
-  #
+# we want to take each item in the board array and create an array 
+  # and compare each of those arrays to each of the arrays in the WIN_COMBINATIONS array
+  # if they match, return true
+  # else, return false
+   
   # if board.all?{ |space| space == " " }
   #   return false
   # elsif
-  #
+  # 
   # elsif board.all?{ |space| space == "X" || space == "O" }
   #   return false
 
 
   match = []
-  if full?(board)
-    board.each_with_index { |element, index|
-      if (element[index] == element[index.to_i + 1]) && (element[index] == element[index.to_i + 2])
-        match << [index]
-        match << [index.to_i + 1]
-        match << [index.to_i + 2]
-        return match
-      else
-        return false
-      end
-    }
-  else
-    return false
-  end
+  board.each_with_index { |element, index|
+    if (element[index] == element[index.to_i + 1]) && (element[index] == element[index.to_i + 2])
+      match << [index]
+      match << [index.to_i + 1]
+      match << [index.to_i + 2]
+      return match
+    elsif (element[index] == element[index.to_i + 3]) && (element[index] == element[index.to_i + 6])
+      match << [index]
+      match << [index.to_i + 3]
+      match << [index.to_i + 6]
+      return match
+    elsif (element[index] == element[index.to_i + 4]) && (element[index] == element[index.to_i + 8])
+      match << [index]
+      match << [index.to_i + 4]
+      match << [index.to_i + 8]
+      return match
+    else
+      return false
+    end
+  }
 end
-
-won?(board)
-binding.pry
 
 def full?(board)
   if board.any? { |space| space == " " }
