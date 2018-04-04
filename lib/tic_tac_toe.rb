@@ -87,15 +87,15 @@ def won?(board)
   #   return false
   # end
 
-# we want to take each item in the board array and create an array 
+# we want to take each item in the board array and create an array
   # and compare each of those arrays to each of the arrays in the WIN_COMBINATIONS array
   # if they match, return true
   # else, return false
-   
+
   # if board.all?{ |space| space == " " }
   #   return false
   # elsif
-  # 
+  #
   # elsif board.all?{ |space| space == "X" || space == "O" }
   #   return false
 
@@ -116,6 +116,11 @@ def won?(board)
       match << [index]
       match << [index.to_i + 4]
       match << [index.to_i + 8]
+      return match
+    elsif (element[index] == element[index.to_i + 2]) && (element[index] == element[index.to_i + 4])
+      match << [index]
+      match << [index.to_i + 2]
+      match << [index.to_i + 4]
       return match
     else
       return false
