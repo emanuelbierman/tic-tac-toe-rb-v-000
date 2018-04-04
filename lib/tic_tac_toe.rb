@@ -1,3 +1,4 @@
+require 'pry'
 
 WIN_COMBINATIONS = [
   [0,1,2],
@@ -111,6 +112,7 @@ def won?(board)
   else
     return false
   end
+  binding.pry
 end
 
 def full?(board)
