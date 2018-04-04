@@ -85,6 +85,32 @@ def won?(board)
   elsif board.all?{ |space| space == "X" || space == "O" }
     return false
   end
+
+  # win_combo_1 = 
+  # 
+  # if board.all?{ |space| space == " " }
+  #   return false
+  # elsif 
+  # 
+  # elsif board.all?{ |space| space == "X" || space == "O" }
+  #   return false
+
+
+  match = []
+  if full?(board)
+    board.each_with_index { |element, index|
+      if (element[index] == element[index.to_i + 1]) && (element[index] == element[index.to_i + 2])
+        match << [index]
+        match << [index.to_i + 1]
+        match << [index.to_i + 2]
+        return match
+      else
+        return false
+      end
+    }
+  else
+    return false
+  end
 end
 
 def full?(board)
