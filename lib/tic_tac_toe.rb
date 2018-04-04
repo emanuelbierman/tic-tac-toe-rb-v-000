@@ -111,7 +111,9 @@ def won?(board)
         match << index
       end
       WIN_COMBINATIONS.each_with_index do |element, index|
-        until (WIN_COMBINATIONS[index]) & match == WIN_COMBINATIONS[index]
+        unless (WIN_COMBINATIONS[index]) & match == WIN_COMBINATIONS[index]
+          return false
+        else
           return WIN_COMBINATIONS[index]
         end
       end
