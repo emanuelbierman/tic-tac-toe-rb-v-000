@@ -112,8 +112,10 @@ def won?(board)
   else
     return false
   end
-  binding.pry
 end
+
+won?(board)
+binding.pry
 
 def full?(board)
   if board.any? { |space| space == " " }
