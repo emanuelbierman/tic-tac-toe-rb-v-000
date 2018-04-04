@@ -96,23 +96,28 @@ def won?(board)
 
   # we want to take each item in the board array and create an array
     # and compare each of those arrays to each of the arrays in the WIN_COMBINATIONS array
-  
-    in board, find each element that matches X or O 
+
+    in board, find each element that matches X or O
       and return an array with their indexes
     return a comparison of the intersection of that array with every array within WIN_COMBINATIONS
-    
+
     # if they match, return WIN_COMBINATIONS[]
     # else, return false
 
   match = []
   if board.count("X") > board.count("O")
-    board.each_with_index do |element, index| 
+    board.each_with_index do |element, index|
       if element == "X"
         match << index
       end
+      WIN_COMBINATIONS.each_with_index do |element, index|
+        if (WIN_COMBINATIONS[index]) & match == WIN_COMBINATIONS[index]
+          return WIN_COMBINATIONS[index]
+        end
+      end
     end
   elsif board.count("O") > board.count("X")
-    board.each_with_index do |element, index| 
+    board.each_with_index do |element, index|
       if element == "O"
         match << index
       end
@@ -120,32 +125,32 @@ def won?(board)
   else
     return false
   end
-  
-  board.each_with_index { |element, index|
-    if (element[index] == element[index.to_i + 1]) && (element[index] == element[index.to_i + 2])
-      match << [index]
-      match << [index.to_i + 1]
-      match << [index.to_i + 2]
-      return match
-    elsif (element[index] == element[index.to_i + 3]) && (element[index] == element[index.to_i + 6])
-      match << [index]
-      match << [index.to_i + 3]
-      match << [index.to_i + 6]
-      return match
-    elsif (element[index] == element[index.to_i + 4]) && (element[index] == element[index.to_i + 8])
-      match << [index]
-      match << [index.to_i + 4]
-      match << [index.to_i + 8]
-      return match
-    elsif (element[index] == element[index.to_i + 2]) && (element[index] == element[index.to_i + 4])
-      match << [index]
-      match << [index.to_i + 2]
-      match << [index.to_i + 4]
-      return match
-    else
-      return false
-    end
-  }
+
+  # board.each_with_index { |element, index|
+  #   if (element[index] == element[index.to_i + 1]) && (element[index] == element[index.to_i + 2])
+  #     match << [index]
+  #     match << [index.to_i + 1]
+  #     match << [index.to_i + 2]
+  #     return match
+  #   elsif (element[index] == element[index.to_i + 3]) && (element[index] == element[index.to_i + 6])
+  #     match << [index]
+  #     match << [index.to_i + 3]
+  #     match << [index.to_i + 6]
+  #     return match
+  #   elsif (element[index] == element[index.to_i + 4]) && (element[index] == element[index.to_i + 8])
+  #     match << [index]
+  #     match << [index.to_i + 4]
+  #     match << [index.to_i + 8]
+  #     return match
+  #   elsif (element[index] == element[index.to_i + 2]) && (element[index] == element[index.to_i + 4])
+  #     match << [index]
+  #     match << [index.to_i + 2]
+  #     match << [index.to_i + 4]
+  #     return match
+  #   else
+  #     return false
+  #   end
+  # }
 end
 
 def full?(board)
